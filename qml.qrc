@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Cline.qml</file>
+        <file>Cmask.qml</file>
+        <file>noublue.jpg</file>
+        <file>LittleLine.qml</file>
+        <file>Background.qml</file>
+        <file>Speedval.qml</file>
+        <file>Tachoval.qml</file>
+        <file>Maphover.qml</file>
+        <file>cover.jpg</file>
+        <file>Midline.qml</file>
+        <file>Criclespeed.qml</file>
+        <file>Bottomline.qml</file>
+        <file>electric-station.png</file>
+        <file>charging-station.png</file>
+    </qresource>
+</RCC>
