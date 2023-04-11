@@ -125,7 +125,25 @@ Shape{
     }
 
     onCounterChanged: {
-        valueleft.gradient_val = valueleft.counter
+        console.log(valueleft.counter)
+        if(valueleft.counter <= 0.20){
+            valueleft.gradient_val = valueleft.counter / 2.5
+        }
+        else if(valueleft.counter > 0.20 && valueleft.counter <= 0.40){
+            valueleft.gradient_val = valueleft.counter / 2.5
+        }
+        else if(valueleft.counter > 0.40 && valueleft.counter <=0.60){
+            valueleft.gradient_val = valueleft.counter / 2.5 + (valueleft.counter - 0.40)*0.08
+        }
+        else if(valueleft.counter > 0.6 && valueleft.counter <= 1){
+            valueleft.gradient_val = valueleft.counter / 2.34375 - (valueleft.counter - 0.6)* 0.2041
+        }
+        else if(valueleft.counter > 1 && valueleft.counter <=1.4){
+            valueleft.gradient_val = valueleft.counter /2.8985 - (valueleft.counter - 1)* 0.1575
+        }
+        else if(valueleft.counter > 1.4 && valueleft.counter <= 1.8){
+            valueleft.gradient_val = valueleft.counter / 3.3333 - (valueleft.counter - 1.4) * 0.0125
+        }
     }
 
 

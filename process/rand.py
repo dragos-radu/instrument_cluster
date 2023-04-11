@@ -10,7 +10,7 @@ while True:
     if rand < 10 :
          rand = random.uniform(rand, rand + 10)
 
-    elif rand > 50:
+    elif rand > 170:
         rand = random.uniform(rand - 10, rand)
 
     else:

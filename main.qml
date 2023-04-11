@@ -20,7 +20,7 @@ Window {
     color: "#090909"
     flags: Qt.FramelessWindowHint | Qt.Window
 
-    property double val_grad: 10
+    property double val_grad: 4
     property var pndr: "D"
     property double range: 100
     property double temp: 11
@@ -271,7 +271,7 @@ Window {
     }
     Component.onCompleted: {
 
-        //process1.start("/home/dragos/Desktop/instrument_cluster/process/rand.py",[" "])
+        process1.start("/home/dragos/Desktop/instrument_cluster/process/rand.py",[" "])
 
     }
     Rectangle{
