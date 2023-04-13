@@ -125,7 +125,7 @@ Shape{
     }
 
     onCounterChanged: {
-        console.log(valueleft.counter)
+        //console.log(Math.atan(Infinity))
         if(valueleft.counter <= 0.20){
             valueleft.gradient_val = valueleft.counter / 2.5
         }

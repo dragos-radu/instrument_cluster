@@ -24,6 +24,9 @@ Window {
     property var pndr: "D"
     property double range: 100
     property double temp: 11
+    property double latitude: 0
+    property double longitude: 0
+    property double anglemap: 0
 
     Background{
         id:bleft
@@ -269,9 +272,36 @@ Window {
             console.log(mainwindow.val_grad)
         }
     }
+
+    Process {
+        id: processmap
+
+        property string coordinates: ""
+
+
+        onStarted: print("Processmap started")
+        onFinished:{
+
+            print("Closed")
+        }
+
+        onErrorOccurred: console.log("Error Ocuured: ", error)
+
+        onReadyReadStandardOutput: {
+            processmap.coordinates = processmap.readAll()
+
+            var mapCoordinates = coordinates.split(" ")
+            mainwindow.latitude = mapCoordinates[0]
+            mainwindow.longitude = mapCoordinates[1]
+            mainwindow.anglemap = mapCoordinates[2]
+            console.log(mainwindow.latitude, mainwindow.longitude, mainwindow.anglemap)
+        }
+    }
     Component.onCompleted: {
 
-        process1.start("/home/dragos/Desktop/instrument_cluster/process/rand.py",[" "])
+        //process1.start("/home/dragos/Desktop/instrument_cluster/process/rand.py",[" "])
+        processmap.start("/home/dragos/Desktop/instrument_cluster/process/loc.py",[" "])
+
 
     }
     Rectangle{
@@ -295,12 +325,20 @@ Window {
             id: mapplugin
             name:"mapboxgl"
         }
-        center: QtPositioning.coordinate(44.40014336394646, 26.049231536095185)
+        center: QtPositioning.coordinate(mainwindow.latitude, mainwindow.longitude)
         tilt: 80
         activeMapType: supportedMapTypes[7]
         anchors.fill: maphover
         zoomLevel: 18
-        bearing: -10
+        bearing: anglemap
+
+        Behavior on center{
+            CoordinateAnimation{
+                duration: 1000
+                easing.type: Easing.Linear
+            }
+        }
+
         Maphover{
             anchors.centerIn: parent
             id:rect1
