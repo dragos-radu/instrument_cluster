@@ -297,39 +297,27 @@ Window {
             console.log(mainwindow.latitude, mainwindow.longitude, mainwindow.anglemap)
         }
     }
-    Component.onCompleted: {
 
+    Component.onCompleted:
+    {
         //process1.start("/home/dragos/Desktop/instrument_cluster/process/rand.py",[" "])
-        processmap.start("/home/dragos/Desktop/instrument_cluster/process/loc.py",[" "])
-
-
+        //processmap.start("/home/dragos/Desktop/instrument_cluster/process/loc.py",[" "])
     }
-    Rectangle{
-        visible: false
-        color: "white"
-        anchors.centerIn: parent
-        width: 80
-        height: 80
-        Text {
-            anchors.centerIn: parent
-            id: texta
-            text: qsTr(process1.outp)
-            color: "black"
-            font.pixelSize: 12
-        }
-    }
-    Map{
+
+    Map
+    {
         id: map
 
-        plugin: Plugin{
+        plugin: Plugin
+        {
             id: mapplugin
             name:"mapboxgl"
         }
         center: QtPositioning.coordinate(mainwindow.latitude, mainwindow.longitude)
-        tilt: 80
+        tilt: 86
         activeMapType: supportedMapTypes[7]
         anchors.fill: maphover
-        zoomLevel: 18
+        zoomLevel: 19
         bearing: anglemap
 
         Behavior on center{
@@ -338,6 +326,25 @@ Window {
                 easing.type: Easing.Linear
             }
         }
+
+        Behavior on bearing{
+            PropertyAnimation{
+                duration: 1000
+                easing.type: Easing.Linear
+            }
+        }
+
+        MapQuickItem{
+            id: icon
+            anchorPoint: Qt.point(16, 16) // set the anchor point of the icon
+            sourceItem: Image {
+                width: 30
+                height: 30
+                source: "direction.png" // set the source image of the icon
+            }
+            coordinate: map.center
+        }
+
 
         Maphover{
             anchors.centerIn: parent
@@ -508,7 +515,18 @@ Window {
     } //
 
 
+    RightTline{
+        id: tline
+        layer.enabled: true
+        layer.effect: Glow{
+            anchors.fill: tline
+            radius: 6
+            samples: 28
+            color: "#a6fffe"
+            source: tline
+        }
 
+    }
 
 
     Bottomline{

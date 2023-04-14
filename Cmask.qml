@@ -74,13 +74,13 @@ ShapePath
     PathLine {
         id: line7
         x:  line2.x + 50
-        y: line2.y - 10
+        y: line2.y
     }
 
     PathLine {
         id: line8
-        x:  arc1.x + 50
-        y: arc1.y - 20
+        x:  arc1.x + 44
+        y: arc1.y - 30
     }
 
     PathArc{
