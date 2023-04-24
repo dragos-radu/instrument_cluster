@@ -9,6 +9,7 @@ latitude = 44.41918
 longitude = 26.10418
 cnt = 0
 
+
 while True:
     cnt += 1
 
@@ -27,17 +28,23 @@ while True:
     else:
         longitude += 0.0003
 
-    if latitude - old_lat < 0 and longitude - old_lon < 0:
-        angle = math.atan( (longitude - old_lon) / (latitude - old_lat) ) * 180 / math.pi + 180
-    
-    elif latitude - old_lat < 0 and longitude - old_lon > 0:
-        angle = 180 + math.atan( (longitude - old_lon) / (latitude - old_lat) ) * 180 / math.pi
+    angle = 0
 
-    elif latitude - old_lat > 0 and longitude - old_lon< 0:
-        angle = math.atan( (longitude - old_lon) / (latitude - old_lat) ) * 180 / math.pi
+    delta_lon = longitude - old_lon
+    delta_lat = latitude - old_lat
 
-    else:
-        angle = math.atan( (longitude - old_lon) / (latitude - old_lat) ) * 180 / math.pi
+    raport = 0
+
+    try:
+        raport = delta_lon/delta_lat
+    except ZeroDivisionError:
+        raport = math.inf
+
+    if latitude - old_lat < 0 :
+        angle = math.atan(raport) * 180 / math.pi + 180
+
+    elif latitude - old_lat >= 0:
+        angle = math.atan( raport ) * 180 / math.pi
 
 
     print(f"{round(latitude,5)} {round(longitude,5)} {angle}", flush=True)

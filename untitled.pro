@@ -1,4 +1,5 @@
-QT += quick
+QT += quick location positioning network opengl concurrent sql
+
 
 CONFIG += c++11
 

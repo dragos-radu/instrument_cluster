@@ -17,4 +17,4 @@ while True:
         rand = random.uniform(rand - 10, rand + 10)
 
     print(f'\n{round(rand,2)}', flush=True)
-    time.sleep(0.5)
+    time.sleep(1)

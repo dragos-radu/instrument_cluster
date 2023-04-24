@@ -7,15 +7,15 @@ Shape{
 
     ShapePath{
         id: path
-        startX: 643
-        startY: 620
+        startX: 643*mainwindow.resize
+        startY: 620*mainwindow.resize
         strokeColor: "white"
         strokeWidth: 2
         fillColor: "transparent"
 
         PathLine{
             id: line1
-            x: path.startX + 250
+            x: path.startX + 250*mainwindow.resize
             y: path.startY
         }
     }

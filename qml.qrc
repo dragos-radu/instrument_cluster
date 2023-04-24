@@ -18,5 +18,13 @@
         <file>direction.png</file>
         <file>RightTline.qml</file>
         <file>BatteryLine.qml</file>
+        <file>problem.png</file>
+        <file>warning.png</file>
+        <file>Numbers.qml</file>
+        <file>car-battery.png</file>
+        <file>beam.png</file>
+        <file>process/rand.py</file>
+        <file>process/loc.py</file>
+        <file>Tline.qml</file>
     </qresource>
 </RCC>

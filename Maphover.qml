@@ -25,20 +25,20 @@ import QtQuick.Shapes 1.12
 Shape {
 
     ShapePath {
-        startX: 1
-        startY: -400
+        startX: 1*mainwindow.resize
+        startY: -400*mainwindow.resize
         PathArc {
             x: 0
-            y: -400
+            y: -400*mainwindow.resize
             useLargeArc: true
-            radiusX: 500
-            radiusY: 350
+            radiusX: 500*mainwindow.resize
+            radiusY: 350*mainwindow.resize
 
 
         }
         fillGradient: RadialGradient {
 
-            centerRadius: 420
+            centerRadius: 420*mainwindow.resize
             centerX: 0
             centerY: 0
 
